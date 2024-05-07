@@ -50,6 +50,22 @@ class Library:
                 book_in_list = True
         return book_in_list
 
+    def edit_book(self, book_edit: Book, title, author, publication_year, genre):
+        try:
+
+            for book in self._books_list:
+                if book_edit.is_same_book(book):
+                    if title != "na":
+                        book.set_title(title)
+                    if author != "na":
+                        book.set_author(author)
+                    if publication_year != -1:
+                        book.set_publication_year(publication_year)
+                    if genre != "na":
+                        book.set_genre(genre)
+        except:
+            print("editing failed")
+
     def display_library_books(self):
         for book in self._books_list:
             print(book.display_book())
